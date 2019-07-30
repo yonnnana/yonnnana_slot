@@ -6,13 +6,15 @@ var app = new Vue({
     slot3: { value: 0, src: "" },
     timer: null,
     isRotate: true,
-	modalShow: false
+	modalShow: false,
+	message: "おめでとうございます！"
   },
   methods: {
   	stop: function() {
 	  clearInterval(this.timer)
       this.timer = null
       this.isRotate = false
+	  this.message = "おめでとうございます！"
 	  
 	  var slot = this.getRandomInt(50, 0)
 	  var src = ""
@@ -45,12 +47,13 @@ var app = new Vue({
 		  this.slot3.src = src
 		  match = true
 	  }
-	  else if(slot.value === 47) {
+	  else if(slot.value === 47 || slot.value === 39 || slot.value === 28) {
 		  src = "./img/ogreblack.jpg"
 		  this.slot1.src = src
 		  this.slot2.src = src
 		  this.slot3.src = src
 		  match = true
+		  this.message = "おめでとう！これで君も今日からオーガブラックだ！"
 	  }
 	  else if(this.slot1.value == this.slot2.value && this.slot1.value == this.slot3.value){
       	match = true

@@ -40,7 +40,7 @@
 		</article>
 		<div>
 			<b-modal v-model="modalShow" centered title="やったね！">
-				おめでとうございます！
+				{{ message }}
 				<template slot="modal-footer" slot-scope="{ ok }">
 					<b-button @click="ok()">
 						OK
